@@ -1509,8 +1509,12 @@ svg {
     height: 12px !important;
   }
 
-  .arabic-main-title {
-    font-size: 22px !important;
+  .latin-main-title {
+    font-size: 19px !important;
+  }
+
+  .arabic-sub-title, .arabic-main-title {
+    font-size: 20px !important;
   }
 
   .counter-ring-container {
