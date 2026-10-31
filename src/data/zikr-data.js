@@ -10,18 +10,19 @@ export const ZIKR_CATEGORIES = [
   { id: 'tonggi-kechki', name: "Tonggi & Kechki" }
 ];
 
-// Special Sequential 99 Names Mode (Activated only via the top 'Allohning 99 Ismi' mode button)
+// Special Sequential 99 Names Mode
 export const ASMA_UL_HUSNA_SEQUENTIAL = {
   id: 'allah-99-names',
   arabic: 'أَسْمَاءُ اللَّهِ الْحُسْنَىٰ',
-  transliteration: "Allohning 99 Go'zal Ismi (Ketma-ket)",
+  transliteration: "Allohning 99 Go'zal Ismi",
   meaning: "Har bir tasbeh donasi bosilganda 99 ism tartib bilan birma-bir o'zgaradi. Yodlash va qalbiy zikr uchun.",
   category: 'asma',
   target: 99,
   isAsmaUlHusna: true
 };
 
-// Core authentic sunnah zikrs (Pure zikrs only - no scattered 99 names)
+// Core authentic sunnah zikrs with clean, easy-to-read Latin transliteration
+// and concise 1-line Arabic snippets with ellipsis (...) so it never blocks the screen
 export const INITIAL_ZIKRS = [
   {
     id: 'astaghfirullah',
@@ -65,7 +66,7 @@ export const INITIAL_ZIKRS = [
   },
   {
     id: 'subhanallahi-wa-bihamdihi',
-    arabic: 'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ',
+    arabic: 'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ...',
     transliteration: "Subhanallohi va bihamdihi, Subhanallohil 'Aziym",
     meaning: 'Allohni hamd aytib poklayman, Buyuk Alloh barcha nuqsondan pokdir',
     category: 'fazilat',
@@ -73,7 +74,7 @@ export const INITIAL_ZIKRS = [
   },
   {
     id: 'salavat-ibrahim',
-    arabic: 'اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ',
+    arabic: 'اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ...',
     transliteration: "Allohumma solli 'ala Muhammadin va 'ala ali Muhammad",
     meaning: 'Yo Alloh! Muhammad alayhissalomga va ularning oilasiga oʻzing salovot va rahmat yogʻdirgin',
     category: 'salovat',
@@ -81,15 +82,15 @@ export const INITIAL_ZIKRS = [
   },
   {
     id: 'sayyidul-istighfar',
-    arabic: 'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَىٰ عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ',
-    transliteration: "Sayyidul Istig'for (Allohumma anta Robbiy...)",
-    meaning: "Yo Alloh, Sen mening Robbimsan, Sendan boshqa iloh yo'q. Meni yaratding va men Sening qulingman...",
+    arabic: 'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلٰهَ إِلَّا أَنْتَ...',
+    transliteration: "Sayyidul Istig'for: Allohumma anta Robbiy la ilaha illa Ant",
+    meaning: "Yo Alloh, Sen mening Robbimsan, Sendan o'zga iloh yo'q. Meni yaratding va men Sening qulingman...",
     category: 'tonggi-kechki',
     target: 3
   },
   {
     id: 'la-hawla',
-    arabic: 'لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ الْعَلِيِّ الْعَظِيمِ',
+    arabic: 'لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ...',
     transliteration: "La havla va la quvvata illa billahil 'Aliyyil 'Aziym",
     meaning: 'Gunohtan saqlanish va toatga kuch-quvvat faqatgina Buyuk va Oliy Allohdandir',
     category: 'fazilat',
@@ -98,32 +99,32 @@ export const INITIAL_ZIKRS = [
   {
     id: 'hasbunallah',
     arabic: 'حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ',
-    transliteration: "Hasbunallohu va ni'mal vakil",
+    transliteration: "Hasbunallohu va ni'mal vakiyl",
     meaning: 'Bizga Allohning Oʻzi kifoyadir va U qanday ham goʻzal vasiy (himoyachi)!',
     category: 'fazilat',
     target: 100
   },
   {
     id: 'la-ilaha-illa-anta-subhanaka',
-    arabic: 'لَا إِلٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ',
-    transliteration: "La ilaha illa anta subhanaka inniy kuntu minaz-zolimiyn",
-    meaning: 'Sendan oʻzga iloh yoʻqdir. Sen barcha nuqsondan poksan! Men oʻzimga zulm qiluvchilardan boʻldim (Yunus a.s. duosi)',
+    arabic: 'لَا إِلٰهَ إِلَّا أَنْتَ سُبْحَانَكَ...',
+    transliteration: "La ilaha illa Anta subhanaka inniy kuntu minaz-zolimiyn",
+    meaning: 'Sendan oʻzga iloh yoʻqdir. Sen barcha nuqsondan poksan! Men oʻzimga zulm qiluvchilardan boʻldim',
     category: 'istigfor',
     target: 100
   },
   {
     id: 'bismillahillazi',
-    arabic: 'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ',
-    transliteration: "Bismillahillazi la yadurru ma'asmihi shay'un fil ardi va la fis-sama'i va huvas-samiy'ul 'aliym",
-    meaning: "Allohning ismi bilan boshlaymanki, Uning ismi bilan yeru osmonda hech bir narsa zarar yetkaza olmaydi. U Eshituvchi va Biluvchidir",
+    arabic: 'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ...',
+    transliteration: "Bismillahillazi la yadurru ma'asmihi shay'un...",
+    meaning: "Allohning ismi bilan boshlaymanki, Uning ismi ila yeru osmonda hech narsa zarar yetkaza olmas",
     category: 'tonggi-kechki',
     target: 3
   },
   {
     id: 'robbana-atina',
-    arabic: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ',
-    transliteration: "Robbana atina fid-dunya hasanatan va fil axiroti hasanatan va qina 'azaban-nar",
-    meaning: 'Ey Robbimiz! Bizga dunyoda ham, oxiratda ham yaxshilik bergin va bizni doʻzax azobidan asragin',
+    arabic: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً...',
+    transliteration: "Robbana atina fid-dunya hasanatan va fil axiroti hasanatan...",
+    meaning: 'Ey Robbimiz! Bizga dunyoda ham, oxiratda ham yaxshilik bergin va doʻzax azobidan asragin',
     category: 'kundalik',
     target: 33
   }
