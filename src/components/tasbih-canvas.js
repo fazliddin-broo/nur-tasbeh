@@ -293,8 +293,9 @@ export class TasbihEngine {
   }
 
   getBeadTrackY(t) {
-    const baseY = this.height * 0.36;
-    const sag = 38;
+    // Position comfortably below the active zikr header and above the counter ring
+    const baseY = this.height * 0.48;
+    const sag = 28;
     return baseY + Math.sin(t * Math.PI) * sag;
   }
 

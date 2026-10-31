@@ -1,4 +1,4 @@
-// Auth and User Profile Modal Component
+// Auth and User Profile Modal Component (Clean Vanilla CSS Design)
 import { authService } from '../services/auth-service.js';
 import { dbService } from '../services/db-service.js';
 import { soundEngine } from '../services/audio-service.js';
@@ -34,23 +34,23 @@ export class AuthModal {
       <div class="auth-modal-container glass-card">
         <!-- Close Button -->
         <button id="auth-modal-close" class="auth-close-btn" title="Yopish">
-          <svg class="w-5 h-5 text-white/60 hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          <svg class="w-5 h-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
 
         <!-- Unauthenticated Form View -->
         <div id="auth-form-view" class="auth-view-content">
-          <div class="text-center mb-5">
+          <div class="auth-header-center">
             <div class="auth-badge-icon">
               <svg class="w-6 h-6 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
             </div>
-            <h3 id="auth-modal-title" class="text-xl font-bold text-white mt-2">Nur Tasbeh Akounti</h3>
-            <p class="text-xs text-white/60 mt-1 max-w-xs mx-auto">
-              Telefon va laptopingizda zikrlaringizni birgalikda sanang va hech qachon yo'qotmang
+            <h3 id="auth-modal-title" class="auth-title-text">Nur Tasbeh Akounti</h3>
+            <p class="auth-subtitle-text">
+              Telefon va noutbukingizda zikrlarni bir xil sanang va yo'qotmang
             </p>
           </div>
 
           <!-- Auth Tabs -->
-          <div class="auth-tabs-pill mb-5">
+          <div class="auth-tabs-pill">
             <button id="auth-tab-signup" class="auth-tab-btn active">Ro'yxatdan o'tish</button>
             <button id="auth-tab-signin" class="auth-tab-btn">Kirish</button>
           </div>
@@ -58,11 +58,11 @@ export class AuthModal {
           <!-- Error Alert Banner -->
           <div id="auth-error-alert" class="auth-alert-box hidden">
             <svg class="w-4 h-4 text-rose-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span id="auth-error-text" class="text-xs text-rose-200"></span>
+            <span id="auth-error-text" class="auth-alert-message"></span>
           </div>
 
           <!-- Form Fields -->
-          <form id="auth-form" class="space-y-4" onsubmit="return false;">
+          <form id="auth-form" class="auth-form-body" onsubmit="return false;">
             <!-- Nickname -->
             <div class="auth-field-group">
               <label for="auth-input-nickname" class="auth-label">O'zingizga Nickname tanlang:</label>
@@ -72,7 +72,7 @@ export class AuthModal {
                   type="text" 
                   id="auth-input-nickname" 
                   class="auth-input" 
-                  placeholder="masalan: abdurahmon" 
+                  placeholder="masalan: muad'dib" 
                   autocomplete="username"
                   required 
                 />
@@ -81,12 +81,12 @@ export class AuthModal {
 
             <!-- Password -->
             <div class="auth-field-group">
-              <label for="auth-input-password" class="auth-label">Parol tanlang (kamida 8 ta belgi):</label>
+              <label for="auth-input-password" class="auth-label">Parol (kamida 8 ta belgi):</label>
               <div class="auth-input-wrapper">
                 <input 
                   type="password" 
                   id="auth-input-password" 
-                  class="auth-input" 
+                  class="auth-input auth-input-pwd" 
                   placeholder="••••••••" 
                   autocomplete="current-password"
                   required 
@@ -95,59 +95,66 @@ export class AuthModal {
                   <svg id="auth-eye-icon" class="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                 </button>
               </div>
-              <div id="auth-pwd-hint" class="auth-pwd-meter mt-1.5 flex items-center gap-1.5 text-[11px] text-white/40">
-                <span id="auth-pwd-indicator-dot" class="w-1.5 h-1.5 rounded-full bg-white/30"></span>
+              <div id="auth-pwd-hint" class="auth-pwd-meter">
+                <span id="auth-pwd-indicator-dot" class="auth-meter-dot"></span>
                 <span id="auth-pwd-indicator-text">Kamida 8 ta belgi kiriting</span>
               </div>
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" id="auth-submit-btn" class="auth-submit-btn w-full mt-2">
+            <button type="submit" id="auth-submit-btn" class="auth-submit-btn">
               <span id="auth-submit-text">Akount yaratish</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
           </form>
         </div>
 
-        <!-- Authenticated Profile View -->
+        <!-- Authenticated Profile View (Clean, Luxurious Glass Card) -->
         <div id="auth-profile-view" class="auth-view-content hidden">
-          <div class="text-center mb-6">
-            <div id="profile-avatar-circle" class="profile-avatar-large mx-auto">
-              <span id="profile-avatar-initial" class="text-2xl font-bold text-amber-300">A</span>
+          <!-- Top Avatar & Name Section -->
+          <div class="profile-header-center">
+            <div id="profile-avatar-circle" class="profile-avatar-large">
+              <span id="profile-avatar-initial" class="profile-avatar-letter">M</span>
             </div>
-            <h3 id="profile-display-name" class="text-xl font-bold text-white mt-3">Alisher</h3>
-            <p id="profile-nickname-handle" class="text-xs text-amber-300/80 mt-0.5">@alisher</p>
+            <h3 id="profile-display-name" class="profile-name-text">Muad'dib</h3>
+            <div class="profile-handle-badge">
+              <span id="profile-nickname-handle">@muad'dib</span>
+            </div>
           </div>
 
           <!-- Stats Overview Card -->
-          <div class="profile-stats-card glass-card p-4 mb-4">
-            <div class="flex items-center justify-between">
-              <div>
-                <span class="text-[11px] text-white/50 uppercase tracking-wider">Jami aytilgan zikrlar</span>
-                <h4 id="profile-total-zikrs" class="text-2xl font-black text-amber-300 mt-0.5">0</h4>
+          <div class="profile-stats-card">
+            <div class="profile-stats-row">
+              <div class="profile-stats-left">
+                <span class="profile-stats-label">Jami aytilgan zikrlar</span>
+                <div class="profile-stats-number-wrap">
+                  <span id="profile-total-zikrs" class="profile-stats-number">0</span>
+                  <span class="profile-stats-unit">ta</span>
+                </div>
               </div>
-              <div class="w-10 h-10 rounded-full bg-amber-400/20 text-amber-300 flex items-center justify-center">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div class="profile-stats-icon-badge">
+                <svg class="w-6 h-6 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               </div>
             </div>
 
-            <div class="profile-sync-badge mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-xs">
-              <span class="text-white/60">Qurilmalararo holat:</span>
-              <span class="badge-emerald flex items-center gap-1 text-[11px]">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <div class="profile-sync-divider"></div>
+
+            <div class="profile-sync-status-row">
+              <span class="profile-sync-text">Qurilmalararo holat:</span>
+              <span class="profile-sync-badge-pill">
+                <span class="profile-sync-pulse-dot"></span>
                 <span>Doimiy sinxronlash faol</span>
               </span>
             </div>
           </div>
 
-          <div class="text-center px-3 mb-5">
-            <p class="text-[11px] text-white/50 leading-relaxed">
-              Siz ushbu akountingiz orqali telefon va kompyuteringizda bir xil hisobni davom ettirasiz. Internet yo'q joyda ham zikrlar saqlanadi va carry-over bo'ladi.
-            </p>
-          </div>
+          <!-- Friendly Explanation Note -->
+          <p class="profile-info-note">
+            Siz ushbu akountingiz orqali telefon va kompyuteringizda bir xil hisobni davom ettirasiz. Internet yo'q joyda ham zikrlar xavfsiz saqlanadi va carry-over bo'ladi.
+          </p>
 
           <!-- Sign Out Button -->
-          <button id="auth-signout-btn" class="glass-btn-sm w-full py-2.5 text-xs text-rose-300 hover:text-rose-100 border-rose-500/30 hover:border-rose-500/60 transition flex items-center justify-center gap-2">
+          <button id="auth-signout-btn" class="profile-signout-btn">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
             <span>Akountdan chiqish</span>
           </button>
@@ -213,17 +220,17 @@ export class AuthModal {
         if (!dot || !text) return;
 
         if (val.length === 0) {
-          dot.className = 'w-1.5 h-1.5 rounded-full bg-white/30';
+          dot.className = 'auth-meter-dot';
           text.textContent = 'Kamida 8 ta belgi kiriting';
-          text.className = 'text-white/40';
+          text.style.color = 'rgba(255, 255, 255, 0.4)';
         } else if (val.length < 8) {
-          dot.className = 'w-1.5 h-1.5 rounded-full bg-amber-400';
+          dot.className = 'auth-meter-dot warning';
           text.textContent = `${val.length}/8 ta belgi kiritildi`;
-          text.className = 'text-amber-300/80';
+          text.style.color = '#fbbf24';
         } else {
-          dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
+          dot.className = 'auth-meter-dot success';
           text.textContent = `Parol mos keladi (${val.length} ta belgi) ✓`;
-          text.className = 'text-emerald-300 font-medium';
+          text.style.color = '#34d399';
         }
       });
     }
@@ -286,7 +293,7 @@ export class AuthModal {
 
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.classList.add('opacity-70');
+      submitBtn.style.opacity = '0.6';
     }
 
     try {
@@ -307,7 +314,7 @@ export class AuthModal {
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.classList.remove('opacity-70');
+        submitBtn.style.opacity = '1';
       }
     }
   }
