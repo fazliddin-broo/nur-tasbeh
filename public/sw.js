@@ -1,5 +1,5 @@
 // Service Worker for Nur Tasbeh PWA (Offline-first with instant redeploy refresh)
-const CACHE_NAME = 'nur-tasbih-v2';
+const CACHE_NAME = 'nur-tasbih-v4';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -35,39 +35,25 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 2. Navigation / HTML requests: Network-First with Cache Fallback
-  // This ensures whenever online, latest Vercel deployments are served immediately!
-  // When offline (e.g. metro, travel), serves the cached app seamlessly.
-  if (event.request.mode === 'navigate' || event.request.headers.get('accept')?.includes('text/html')) {
-    event.respondWith(
-      fetch(event.request)
-        .then((response) => {
-          if (response && response.status === 200) {
-            const clone = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-          }
-          return response;
-        })
-        .catch(() => {
-          return caches.match('/index.html') || caches.match('/');
-        })
-    );
-    return;
-  }
-
-  // 3. Static assets & scripts: Stale-While-Revalidate
+  // 2. Network-First strategy for all requests (ensures immediate updates on Vercel deployment)
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      const fetchPromise = fetch(event.request).then((networkResponse) => {
+    fetch(event.request)
+      .then((networkResponse) => {
         if (networkResponse && networkResponse.status === 200 && event.request.method === 'GET') {
           const clone = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
         }
         return networkResponse;
-      }).catch(() => null);
-
-      return cached || fetchPromise;
-    })
+      })
+      .catch(() => {
+        return caches.match(event.request).then((cached) => {
+          if (cached) return cached;
+          if (event.request.mode === 'navigate' || event.request.headers.get('accept')?.includes('text/html')) {
+            return caches.match('/index.html') || caches.match('/');
+          }
+          return null;
+        });
+      })
   );
 });
 

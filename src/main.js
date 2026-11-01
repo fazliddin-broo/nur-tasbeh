@@ -30,8 +30,14 @@ class NurTasbihApp {
     // 2. Register Service Worker for PWA (with instant update handling)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(err => {
+        navigator.serviceWorker.register('/sw.js').then(reg => {
+          reg.update();
+        }).catch(err => {
           console.warn('SW registration info:', err);
+        });
+
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          window.location.reload();
         });
       });
     }
