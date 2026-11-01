@@ -308,11 +308,23 @@ class NurTasbihApp {
           return;
         }
 
-        const targets = [33, 99, 100, 300, 1000];
         const currentTarget = this.tasbihEngine.target;
-        const currentIdx = targets.indexOf(currentTarget);
-        const nextTarget = currentIdx !== -1 && currentIdx < targets.length - 1 ? targets[currentIdx + 1] : targets[0];
-        
+        const userInput = prompt("Zikr uchun mo'ljal sonini kiriting (masalan: 33, 100, 500, 1000, 40000):", currentTarget);
+
+        if (userInput !== null) {
+          const parsed = parseInt(userInput.replace(/\s+/g, ''), 10);
+          if (!isNaN(parsed) && parsed > 0) {
+            document.getElementById('target-pill-value').textContent = parsed.toLocaleString();
+            this.tasbihEngine.setTarget(parsed);
+            notificationService.showToast(`Yangi mo'ljal: ${parsed.toLocaleString()} ta belgilandi 🎯`, 'info');
+            return;
+          }
+        }
+
+        // Quick cycling fallback if user leaves empty or presses OK on default
+        const presets = [33, 99, 100, 300, 1000];
+        const nextIdx = (presets.indexOf(currentTarget) + 1) % presets.length;
+        const nextTarget = presets[nextIdx] || 100;
         document.getElementById('target-pill-value').textContent = nextTarget;
         this.tasbihEngine.setTarget(nextTarget);
       });

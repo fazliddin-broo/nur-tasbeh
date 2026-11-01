@@ -114,8 +114,19 @@ class AuthService {
     }
 
     const users = this.getRegisteredUsers();
-    if (users[cleanNick]) {
-      throw new Error(`«${cleanNick}» nomli nickname band. Boshqa nom tanlang yoki tizimga kiring.`);
+    // Case-insensitive check to prevent duplicate nicknames
+    const existingNickKey = Object.keys(users).find(k => k.toLowerCase() === cleanNick);
+    
+    let userExists = !!existingNickKey;
+    if (!userExists && this.cloudConfig.supabaseUrl) {
+      const cloudUser = await this.fetchUserFromCloud(cleanNick);
+      if (cloudUser) userExists = true;
+    }
+
+    if (userExists) {
+      // Security requirement: Never leak or mention password status in error!
+      // Only inform that the nickname already exists.
+      throw new Error(`«${cleanNick}» nomli nickname allaqachon mavjud! Iltimos, boshqa nom tanlang yoki «Kirish» bo'limidan tizimga kiring.`);
     }
 
     const passwordHash = await this.hashPassword(password);

@@ -4,8 +4,8 @@
   "description": "Nafis va estetik raqamli tasbeh, ibratli videolar va kundalik sunnat zikrlari",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#05070f",
-  "theme_color": "#05070f",
+  "background_color": "#02120e",
+  "theme_color": "#02120e",
   "orientation": "portrait-primary",
   "icons": [
     {

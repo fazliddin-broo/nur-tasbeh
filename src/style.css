@@ -174,12 +174,12 @@ svg {
   align-items: center;
   gap: 4px;
   padding: 4px 6px;
-  background: rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(6, 20, 16, 0.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 9999px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.25);
 }
 
 .nav-tab-btn {
@@ -190,7 +190,8 @@ svg {
   border-radius: 9999px;
   border: none;
   background: transparent;
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -200,14 +201,15 @@ svg {
 .nav-tab-btn svg {
   width: 15px !important;
   height: 15px !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
 }
 
 .nav-tab-btn.active {
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.24);
   color: #ffffff;
   font-weight: 700;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.45);
 }
 
 .nav-tab-btn.active svg {
@@ -216,7 +218,7 @@ svg {
 
 .nav-tab-btn:hover:not(.active) {
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* 3 AM Walk Lofi Music Button */
@@ -298,10 +300,12 @@ svg {
 .mode-tab-btn {
   padding: 5px 15px;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.85);
+  background: rgba(6, 20, 16, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
   font-size: 11.5px;
   font-weight: 600;
   cursor: pointer;
@@ -309,7 +313,7 @@ svg {
   align-items: center;
   gap: 6px;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 .mode-tab-btn.active {
@@ -1338,18 +1342,24 @@ svg {
     z-index: 5;
   }
 
-  /* Fixed Top Navigation Bar on Mobile - Perfectly Fitted, No Overlapping */
+  /* Fixed Top Navigation Bar on Mobile - Perfectly Crisp, High Contrast */
   .top-nav-bar {
-    top: calc(var(--safe-top) + 6px);
-    padding: 0 6px;
+    top: calc(var(--safe-top) + 8px);
+    padding: 0 8px;
     width: 100%;
   }
 
   .nav-pill-container {
     width: 100%;
     max-width: 420px;
-    gap: 2px;
-    padding: 3px 4px;
+    gap: 3px;
+    padding: 4px 6px;
+    background: rgba(6, 20, 16, 0.88);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 9999px;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.22);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1363,16 +1373,27 @@ svg {
   }
 
   .nav-tab-btn {
-    padding: 6px 8px;
-    font-size: 11px;
-    gap: 3px;
+    padding: 6px 9px;
+    font-size: 11.5px;
+    gap: 4px;
     flex-shrink: 0;
     white-space: nowrap;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    font-weight: 600;
   }
 
   .nav-tab-btn svg {
     width: 13px !important;
     height: 13px !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+  }
+
+  .nav-tab-btn.active {
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
   }
 
   .lofi-btn {
