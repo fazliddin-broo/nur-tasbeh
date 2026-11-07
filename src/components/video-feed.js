@@ -120,18 +120,20 @@ export class VideoFeed {
 
         <!-- Video Overlay Info -->
         <div class="player-meta-bar glass-card">
-          <div>
-            <h3 id="player-title" class="text-base font-bold text-white line-clamp-1"></h3>
-            <p id="player-speaker" class="text-xs text-amber-300 mt-0.5"></p>
-          </div>
-          <div class="flex items-center gap-2">
-            <button id="player-like-btn" class="player-action-btn" title="Yoqdi">
-              <svg class="w-5 h-5 text-rose-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-              <span id="player-like-count" class="text-xs text-white/80">382</span>
-            </button>
+          <div class="player-meta-top">
+            <div class="player-meta-heading">
+              <span id="player-category" class="video-category-tag mb-1 inline-block">Ma'ruza</span>
+              <h3 id="player-title" class="text-base font-bold text-white line-clamp-1"></h3>
+              <p id="player-speaker" class="text-xs text-amber-300 mt-0.5 font-medium"></p>
+            </div>
             <button id="player-share-btn" class="player-action-btn" title="Ulashish">
-              <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+              <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+              <span>Ulashish</span>
             </button>
+          </div>
+          <!-- Authentic Islamic Description -->
+          <div class="player-description-box">
+            <p id="player-description" class="player-description-text"></p>
           </div>
         </div>
       </div>
@@ -153,32 +155,31 @@ export class VideoFeed {
     closeBtn.addEventListener('click', closeModal);
     backdrop.addEventListener('click', closeModal);
 
-    // Like button
-    const likeBtn = modal.querySelector('#player-like-btn');
-    const likeCount = modal.querySelector('#player-like-count');
-    likeBtn.addEventListener('click', () => {
-      soundEngine.playSoftTap();
-      const current = parseInt(likeCount.textContent || '0', 10);
-      likeCount.textContent = current + 1;
-      likeBtn.classList.add('scale-110');
-      setTimeout(() => likeBtn.classList.remove('scale-110'), 200);
-    });
-
-    // Share button
+    // Native Share button (Invokes iOS / Android native share sheet)
     const shareBtn = modal.querySelector('#player-share-btn');
     shareBtn.addEventListener('click', async () => {
       soundEngine.playSoftTap();
-      if (navigator.share && this.activeVideo) {
+      if (!this.activeVideo) return;
+
+      const shareData = {
+        title: this.activeVideo.title,
+        text: `${this.activeVideo.speaker} — «${this.activeVideo.title}»\n\n${this.activeVideo.description || ''}\n\nNur Tasbeh ilovasida tomosha qiling:`,
+        url: window.location.href
+      };
+
+      if (navigator.share) {
         try {
-          await navigator.share({
-            title: this.activeVideo.title,
-            text: `${this.activeVideo.speaker}: ${this.activeVideo.title}`,
-            url: window.location.href
-          });
-        } catch (e) {}
+          await navigator.share(shareData);
+        } catch (e) {
+          // User closed share sheet
+        }
       } else {
-        navigator.clipboard.writeText(window.location.href);
-        alert("Havola nusxalandi!");
+        try {
+          await navigator.clipboard.writeText(`${shareData.text}\n${shareData.url}`);
+          alert("Havola va tavsif nusxalandi! 📋");
+        } catch {
+          alert("Havola nusxalandi!");
+        }
       }
     });
   }
@@ -192,11 +193,15 @@ export class VideoFeed {
     const videoEl = this.modal.querySelector('#main-player-video');
     const titleEl = this.modal.querySelector('#player-title');
     const speakerEl = this.modal.querySelector('#player-speaker');
-    const likeCountEl = this.modal.querySelector('#player-like-count');
+    const categoryEl = this.modal.querySelector('#player-category');
+    const descriptionEl = this.modal.querySelector('#player-description');
 
-    titleEl.textContent = video.title;
-    speakerEl.textContent = video.speaker;
-    likeCountEl.textContent = video.likes || 120;
+    if (titleEl) titleEl.textContent = video.title;
+    if (speakerEl) speakerEl.textContent = video.speaker;
+    if (categoryEl) categoryEl.textContent = video.category || "Ma'ruza";
+    if (descriptionEl) {
+      descriptionEl.textContent = video.description || "Ushbu ibratli dars qalbni poklash, zikr va sunnatga amal qilish haqida ezgu nasihatlarni o'z ichiga oladi.";
+    }
     videoEl.src = video.url;
 
     this.modal.classList.remove('hidden');

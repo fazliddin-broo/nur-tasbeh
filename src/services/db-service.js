@@ -172,7 +172,7 @@ class DBService {
         duration: "01:10",
         url: "/videos/lecture-1.mp4",
         views: 1240,
-        likes: 382,
+        description: "Ushbu ibratli darsda oxirat kuni, hisob-kitob va har bir insonning o'z amallariga javobgarligi eslatiladi. Dunyo hayoti vaqtinchalik sinov bo'lib, vaqtni g'animat bilish, ezgu amallarni ko'paytirish, doimiy zikr va tavbada bo'lish najot kalitidir.",
         isFeatured: true
       }
     ];
@@ -216,12 +216,12 @@ class DBService {
       title: videoData.title || "Yangi ibratli video",
       speaker: videoData.speaker || "Ustoz ma'ruzasi",
       category: videoData.category || "Ma'ruza",
+      description: videoData.description || "Ushbu ibratli dars qalbni poklash, zikr va sunnatga amal qilish haqida ezgu nasihatlarni o'z ichiga oladi.",
       date: "Hozirgina",
       duration: videoData.duration || "01:00",
       url: videoData.url,
       blob: videoData.blob,
-      views: 1,
-      likes: 0
+      views: 1
     };
 
     if (videoData.blob && this.db) {
