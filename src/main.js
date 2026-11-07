@@ -102,8 +102,9 @@ class NurTasbihApp {
     const target = zikr.isAsmaUlHusna ? 99 : (zikr.target || 100);
     document.getElementById('target-pill-value').textContent = target;
 
-    this.tasbihEngine.setZikr(zikr, count);
+    // Update DOM text first, then update canvas physics metrics
     this.onCountUpdate(count, target);
+    this.tasbihEngine.setZikr(zikr, count);
   }
 
   setupModeSwitcher() {

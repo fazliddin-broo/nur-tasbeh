@@ -145,6 +145,7 @@ export class TasbihEngine {
     this.count = count !== null ? count : dbService.getCount(zikr.id);
     this.targetOffset = this.count;
     this.beadOffset = this.count;
+    this.updateTrackMetrics();
   }
 
   setTarget(newTarget) {
@@ -292,11 +293,41 @@ export class TasbihEngine {
     }, { passive: true });
   }
 
+  updateTrackMetrics() {
+    let headerBottom = this.height * 0.28;
+    let counterTop = this.height * 0.72;
+
+    const headerEl = document.getElementById('active-zikr-box');
+    const counterEl = document.getElementById('counter-ring-box');
+
+    if (headerEl) {
+      const hRect = headerEl.getBoundingClientRect();
+      if (hRect.bottom > 0) {
+        headerBottom = hRect.bottom;
+      }
+    }
+    if (counterEl) {
+      const cRect = counterEl.getBoundingClientRect();
+      if (cRect.top > 0) {
+        counterTop = cRect.top;
+      }
+    }
+
+    const availableSpace = counterTop - headerBottom;
+    if (availableSpace > 100) {
+      // Comfortably centered between zikr header text and counter ring
+      this.baseTrackY = headerBottom + (availableSpace * 0.46);
+    } else {
+      this.baseTrackY = Math.max(headerBottom + 45, this.height * 0.50);
+    }
+    this.sag = Math.min(20, this.height * 0.024);
+  }
+
   getBeadTrackY(t) {
-    // Position comfortably below the active zikr header and above the counter ring
-    const baseY = this.height * 0.48;
-    const sag = 28;
-    return baseY + Math.sin(t * Math.PI) * sag;
+    if (typeof this.baseTrackY === 'undefined') {
+      this.updateTrackMetrics();
+    }
+    return this.baseTrackY + Math.sin(t * Math.PI) * this.sag;
   }
 
   getBeadTrackX(t) {
@@ -311,6 +342,11 @@ export class TasbihEngine {
   animate() {
     const diff = this.targetOffset - this.beadOffset;
     this.beadOffset += diff * 0.18;
+
+    this.frameCounter = (this.frameCounter || 0) + 1;
+    if (this.frameCounter % 20 === 0) {
+      this.updateTrackMetrics();
+    }
 
     this.render();
     requestAnimationFrame(this.animate);
