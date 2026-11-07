@@ -21,112 +21,231 @@ export const ASMA_UL_HUSNA_SEQUENTIAL = {
   isAsmaUlHusna: true
 };
 
-// Core authentic sunnah zikrs with clean, easy-to-read Latin transliteration
-// and concise 1-line Arabic snippets with ellipsis (...) so it never blocks the screen
+// Core authentic Sunnah zikrs and Quranic duas with full, unclipped Latin and Arabic
 export const INITIAL_ZIKRS = [
   {
     id: 'astaghfirullah',
-    arabic: 'أَسْتَغْفِرُ اللَّهَ',
-    transliteration: 'Astaghfirulloh',
-    meaning: 'Allohdan magʻfirat va gunohlarimni kechirishini soʻrayman',
+    arabic: 'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ',
+    transliteration: "Astaghfirulloh va atubu ilayh",
+    meaning: "Allohdan mag'firat so'rayman va Unga tavba qilaman",
     category: 'istigfor',
     target: 100
   },
   {
     id: 'subhanallah',
     arabic: 'سُبْحَانَ اللَّهِ',
-    transliteration: 'Subhanalloh',
-    meaning: 'Alloh barcha ayb-nuqsonlardan pok va munazzahdir',
+    transliteration: "Subhanalloh",
+    meaning: "Alloh barcha ayb-nuqsonlardan pok va munazzahdir",
     category: 'kundalik',
     target: 33
   },
   {
     id: 'alhamdulillah',
     arabic: 'الْحَمْدُ لِلَّهِ',
-    transliteration: 'Alhamdulillah',
-    meaning: 'Hamd va shukr faqat olamlarning Robbi boʻlgan Allohgadir',
+    transliteration: "Alhamdulillah",
+    meaning: "Hamd va shukr faqat olamlarning Robbi bo'lgan Allohgadir",
     category: 'kundalik',
     target: 33
   },
   {
     id: 'allahu-akbar',
     arabic: 'اللَّهُ أَكْبَرُ',
-    transliteration: 'Allohu Akbar',
-    meaning: 'Alloh har bir narsadan ulugʻ va buyukdir',
+    transliteration: "Allohu Akbar",
+    meaning: "Alloh har bir narsadan ulug' va buyukdir",
     category: 'kundalik',
     target: 33
   },
   {
     id: 'la-ilaha-illallah',
     arabic: 'لَا إِلٰهَ إِلَّا اللَّهُ',
-    transliteration: 'La ilaha illalloh',
-    meaning: 'Allohdan oʻzga ibodatga loyiq haqiqiy iloh yoʻqdir',
+    transliteration: "La ilaha illalloh",
+    meaning: "Allohdan o'zga ibodatga loyiq haqiqiy iloh yo'qdir",
     category: 'fazilat',
     target: 100
+  },
+  {
+    id: 'kalimai-toyyiba',
+    arabic: 'لَا إِلٰهَ إِلَّا اللَّهُ مُحَمَّدٌ رَسُولُ اللَّهِ',
+    transliteration: "La ilaha illallohu Muhammadur Rasululloh",
+    meaning: "Allohdan o'zga iloh yo'qdir, Muhammad alayhissalom Uning elchisidir",
+    category: 'fazilat',
+    target: 100
+  },
+  {
+    id: 'kalimai-shahodat',
+    arabic: 'أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ',
+    transliteration: "Ashhadu alla ilaha illallohu va ashhadu anna Muhammadan 'abduhu va rasuluh",
+    meaning: "Guvohlik beramanki, Allohdan o'zga iloh yo'q va guvohlik beramanki, Muhammad Uning bandasi va elchisidir",
+    category: 'fazilat',
+    target: 33
   },
   {
     id: 'subhanallahi-wa-bihamdihi',
-    arabic: 'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ...',
+    arabic: 'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ ، سُبْحَانَ اللَّهِ الْعَظِيمِ',
     transliteration: "Subhanallohi va bihamdihi, Subhanallohil 'Aziym",
-    meaning: 'Allohni hamd aytib poklayman, Buyuk Alloh barcha nuqsondan pokdir',
+    meaning: "Allohni hamd ila poklayman, Buyuk Alloh barcha nuqsonlardan pokdir",
     category: 'fazilat',
     target: 100
   },
   {
-    id: 'salavat-ibrahim',
-    arabic: 'اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ...',
-    transliteration: "Allohumma solli 'ala Muhammadin va 'ala ali Muhammad",
-    meaning: 'Yo Alloh! Muhammad alayhissalomga va ularning oilasiga oʻzing salovot va rahmat yogʻdirgin',
-    category: 'salovat',
+    id: 'tort-sevimli-kalima',
+    arabic: 'سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلٰهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ',
+    transliteration: "Subhanallohi valhamdulillahi va la ilaha illallohu vallohu Akbar",
+    meaning: "Alloh pokdir, Allohga hamd bo'lsin, Allohdan o'zga iloh yo'q va Alloh ulug'dir",
+    category: 'fazilat',
     target: 100
   },
   {
-    id: 'sayyidul-istighfar',
-    arabic: 'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلٰهَ إِلَّا أَنْتَ...',
-    transliteration: "Sayyidul Istig'for: Allohumma anta Robbiy la ilaha illa Ant",
-    meaning: "Yo Alloh, Sen mening Robbimsan, Sendan o'zga iloh yo'q. Meni yaratding va men Sening qulingman...",
-    category: 'tonggi-kechki',
-    target: 3
-  },
-  {
     id: 'la-hawla',
-    arabic: 'لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ...',
+    arabic: 'لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ الْعَلِيِّ الْعَظِيمِ',
     transliteration: "La havla va la quvvata illa billahil 'Aliyyil 'Aziym",
-    meaning: 'Gunohtan saqlanish va toatga kuch-quvvat faqatgina Buyuk va Oliy Allohdandir',
+    meaning: "Gunohdan saqlanish va toat-ibodat qilishga kuch-quvvat faqatgina Yuksak va Buyuk Allohdandir",
     category: 'fazilat',
     target: 100
   },
   {
     id: 'hasbunallah',
-    arabic: 'حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ',
-    transliteration: "Hasbunallohu va ni'mal vakiyl",
-    meaning: 'Bizga Allohning Oʻzi kifoyadir va U qanday ham goʻzal vasiy (himoyachi)!',
+    arabic: 'حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ ، نِعْمَ الْمَوْلَىٰ وَنِعْمَ النَّصِيرُ',
+    transliteration: "Hasbunallohu va ni'mal vakiyl, ni'mal mavla va ni'man-nasiyr",
+    meaning: "Bizga Allohning O'zi kifoyadir, U qanday ham go'zal vasiy, qanday ham go'zal Egadir va qanday ham go'zal yordamchidir!",
     category: 'fazilat',
     target: 100
   },
   {
+    id: 'salavat-ibrahim',
+    arabic: 'اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ',
+    transliteration: "Allohumma solli 'ala Muhammadin va 'ala ali Muhammad, kama sollayta 'ala Ibrohima va 'ala ali Ibrohim, innaka Hamidum-Majiyd",
+    meaning: "Yo Alloh! Ibrohim alayhissalomga va u zotning oilasiga rahmat qilganingdek, Muhammad alayhissalomga va u zotning oilasiga ham salovot va rahmat yog'dirgin. Albatta Sen maqtovga loyiq va buyuk Zotsan",
+    category: 'salovat',
+    target: 100
+  },
+  {
+    id: 'salavat-qisqa',
+    arabic: 'صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ',
+    transliteration: "Sollallohu 'alayhi va sallam",
+    meaning: "Alloh taolo u zotga salovot va salom yog'dirsin",
+    category: 'salovat',
+    target: 100
+  },
+  {
+    id: 'robbana-atina',
+    arabic: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ',
+    transliteration: "Robbana atina fid-dunya hasanatan va fil axiroti hasanatan va qina 'azaban-nar",
+    meaning: "Ey Robbimiz! Bizga bu dunyoda ham yaxshilik bergin, oxiratda ham yaxshilik bergin va bizni do'zax azobidan asragin",
+    category: 'kundalik',
+    target: 33
+  },
+  {
+    id: 'sayyidul-istighfar',
+    arabic: 'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلٰهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَىٰ عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ',
+    transliteration: "Allohumma Anta Robbiy, la ilaha illa Anta, xolaqtaniy va ana 'abduka, va ana 'ala 'ahdika va va'dika mastato'tu",
+    meaning: "Yo Alloh, Sen mening Robbimsan, Sendan o'zga iloh yo'q. Meni Sen yaratding va men Sening qulingman. Qurbim yetguncha Senga bergan ahdim va va'damdaman",
+    category: 'tonggi-kechki',
+    target: 3
+  },
+  {
     id: 'la-ilaha-illa-anta-subhanaka',
-    arabic: 'لَا إِلٰهَ إِلَّا أَنْتَ سُبْحَانَكَ...',
+    arabic: 'لَا إِلٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ',
     transliteration: "La ilaha illa Anta subhanaka inniy kuntu minaz-zolimiyn",
-    meaning: 'Sendan oʻzga iloh yoʻqdir. Sen barcha nuqsondan poksan! Men oʻzimga zulm qiluvchilardan boʻldim',
+    meaning: "Sendan o'zga iloh yo'qdir. Sen barcha nuqsondan poksan! Albatta men o'zimga zulm qiluvchilardan bo'ldim",
     category: 'istigfor',
     target: 100
   },
   {
     id: 'bismillahillazi',
-    arabic: 'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ...',
-    transliteration: "Bismillahillazi la yadurru ma'asmihi shay'un...",
-    meaning: "Allohning ismi bilan boshlaymanki, Uning ismi ila yeru osmonda hech narsa zarar yetkaza olmas",
+    arabic: 'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ',
+    transliteration: "Bismillahillazi la yadurru ma'asmihi shay'un fil-ardi va la fis-sama'i va Huvas-Samiy'ul-'Aliym",
+    meaning: "Allohning ismi bilan boshlaymanki, Uning ismi ila yerda ham, osmonda ham hech bir narsa zarar yetkaza olmas. U Zot eshituvchi va biluvchidir",
     category: 'tonggi-kechki',
     target: 3
   },
   {
-    id: 'robbana-atina',
-    arabic: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً...',
-    transliteration: "Robbana atina fid-dunya hasanatan va fil axiroti hasanatan...",
-    meaning: 'Ey Robbimiz! Bizga dunyoda ham, oxiratda ham yaxshilik bergin va doʻzax azobidan asragin',
+    id: 'auzu-bikalimatillah',
+    arabic: 'أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ',
+    transliteration: "A'uzu bikalimatillahit-tammati min sharri ma xolaq",
+    meaning: "Allohning mukammal va benuqson kalimalari ila U yaratgan narsalarning yomonligidan panoh so'rayman",
+    category: 'tonggi-kechki',
+    target: 3
+  },
+  {
+    id: 'roziytu-billah',
+    arabic: 'رَضِيتُ بِاللَّهِ رَبًّا وَبِالْإِسْلَامِ دِينًا وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا',
+    transliteration: "Roziytu billahi Robban, va bil-Islami diynan, va bi Muhammadin sollallohu 'alayhi va sallama nabiyya",
+    meaning: "Allohni Robbim deb, Islomni dinim deb va Muhammad sollallohu alayhi vasallamni payg'ambarim deb rozi bo'ldim",
+    category: 'tonggi-kechki',
+    target: 3
+  },
+  {
+    id: 'ya-muqollibal-qulub',
+    arabic: 'يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَىٰ دِينِكَ',
+    transliteration: "Ya Muqollibal-qulub, sabbit qolbiy 'ala diynik",
+    meaning: "Ey qalblarni burib qo'yuvchi Zot! Mening qalbimni O'zingning diningda sobitqadam qilgin",
     category: 'kundalik',
     target: 33
+  },
+  {
+    id: 'ota-ona-duosi',
+    arabic: 'رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا',
+    transliteration: "Robbirhamhuma kama robbayaniy sog'iyro",
+    meaning: "Ey Robbim! Ular meni go'dakligimda mehr bilan tarbiya qilganlaridek, O'zing ularga rahmat va mag'firat ayla",
+    category: 'kundalik',
+    target: 33
+  },
+  {
+    id: 'ilm-duosi',
+    arabic: 'رَبِّ زِدْنِي عِلْمًا وَارْزُقْنِي فَهْمًا',
+    transliteration: "Robbi zidniy 'ilman varzuqniy fahma",
+    meaning: "Ey Robbim! Mening ilmimni va tushunchamni ziyoda qilgin",
+    category: 'kundalik',
+    target: 33
+  },
+  {
+    id: 'qalb-taskini',
+    arabic: 'رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي',
+    transliteration: "Robbishroh liy sodriy va yassir liy amriy",
+    meaning: "Ey Robbim! Mening qalbimni keng qilgin va mening ishimni osonlashtirgin",
+    category: 'kundalik',
+    target: 33
+  },
+  {
+    id: 'namoz-duosi',
+    arabic: 'رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِنْ ذُرِّيَّتِي رَبَّنَا وَتَقَبَّلْ دُعَاءِ',
+    transliteration: "Robbij'alniy muqiymas-solati va min zurriyyati, Robbana va taqobbal du'a",
+    meaning: "Ey Robbim! Meni va zurriyotlarimni namozni to'kis ado etuvchilardan qilgin. Ey Robbimiz, duomni qabul ayla",
+    category: 'kundalik',
+    target: 33
+  },
+  {
+    id: 'qarzdan-panoh',
+    arabic: 'اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ',
+    transliteration: "Allohummak-finiy bihalalika 'an haromik, va ag'niniy bifadlika 'amman sivak",
+    meaning: "Yo Alloh! Meni halol ne'matlaring ila haromdan saqla va O'z fazling ila O'zingdan o'zgalarga muhtoj qilma",
+    category: 'kundalik',
+    target: 33
+  },
+  {
+    id: 'subhanallohi-adada-xolqih',
+    arabic: 'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ عَدَدَ خَلْقِهِ وَرِضَا نَفْسِهِ وَزِنَةَ عَرْشِهِ وَمِدَادَ كَلِمَاتِهِ',
+    transliteration: "Subhanallohi va bihamdihi 'adada xolqih, va rizo nafsih, va zinata 'arshih, va midada kalimatih",
+    meaning: "Maxluqotlarining sonicha, O'zining roziligicha, Arshining og'irligicha va kalimalarining siyohicha Allohga hamd aytib, Uni poklayman",
+    category: 'fazilat',
+    target: 3
+  },
+  {
+    id: 'ayub-shifo-duosi',
+    arabic: 'رَبِّ إِنِّي مَسَّنِيَ الضُّرُّ وَأَنْتَ أَرْحَمُ الرَّاحِمِينَ',
+    transliteration: "Robbiy inniy massaniyad-durru va Anta Arhamur-rohimiyn",
+    meaning: "Ey Robbim! Meni dard, qiyinchilik ushladi. Holbuki Sen rahmlilarning eng rahmlisisan",
+    category: 'kundalik',
+    target: 33
+  },
+  {
+    id: 'tavhid-ulug-zikr',
+    arabic: 'لَا إِلٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ',
+    transliteration: "La ilaha illallohu vahdahu la shariyka lah, lahul mulku va lahul hamdu va Huva 'ala kulli shay'in Qodiyr",
+    meaning: "Yolg'iz Allohdan o'zga iloh yo'q, Uning hech bir sherigi yo'qdir. Mulk ham, barcha hamd ham Unikidir va U barcha narsaga qodirdir",
+    category: 'fazilat',
+    target: 100
   }
 ];
 
