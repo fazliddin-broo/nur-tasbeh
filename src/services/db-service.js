@@ -210,6 +210,42 @@ class DBService {
         views: 2100,
         description: "Alloh taoloning go'zal ismlari va oliy sifatlari, U Zotning yagonaligi, hech bir sherigi va yordamchisi yo'qligi haqidagi sof Ahli Sunna val-Jamoa aqidasiga asoslangan purma'no dars.",
         isFeatured: false
+      },
+      {
+        id: 'lecture-5',
+        title: "Ruhiy tarbiya: Taqvo va qalb pokligi",
+        speaker: "Shayx Muhammad Sodiq Muhammad Yusuf",
+        category: "Ruhiy tarbiya",
+        date: "Yangi",
+        duration: "01:09",
+        url: "/videos/lecture-5.mp4",
+        views: 2263,
+        description: "Shayx Muhammad Sodiq Muhammad Yusuf hazratlarining «Ruhiy tarbiya» darslaridan: Taqvo — qalbni gunohlardan saqlash, Allohning buyruqlariga ixlos bilan itoat etish va qalbiy halovatga erishish asosidir.",
+        isFeatured: false
+      },
+      {
+        id: 'lecture-6',
+        title: "Ilm va axloq: Mo'minning asl fazilati",
+        speaker: "Shayx Muhammad Sodiq Muhammad Yusuf",
+        category: "Ilm & Odob",
+        date: "Yangi",
+        duration: "00:36",
+        url: "/videos/lecture-6.mp4",
+        views: 5246,
+        description: "Ilm olish va unga amal qilish, ota-onaga ehtirom hamda jamiyatga manfaatli inson bo'lish haqidagi Shayx hazratlarining qimmatli nasihatlari.",
+        isFeatured: false
+      },
+      {
+        id: 'lecture-7',
+        title: "Ibratli meros: Qalblarga yo'l topgan hikmatlar",
+        speaker: "Shayx Muhammad Sodiq Muhammad Yusuf",
+        category: "Ibrat",
+        date: "Yangi",
+        duration: "00:57",
+        url: "/videos/lecture-7.mp4",
+        views: 4417,
+        description: "Shayx Muhammad Sodiq Muhammad Yusuf hazratlarining ibratli hayot yo'li, ilmga bo'lgan cheksiz muhabbatlari va xalqimizga qoldirgan boy ma'naviy xazinasi.",
+        isFeatured: false
       }
     ];
   }
