@@ -174,6 +174,42 @@ class DBService {
         views: 1240,
         description: "Ushbu ibratli darsda oxirat kuni, hisob-kitob va har bir insonning o'z amallariga javobgarligi eslatiladi. Dunyo hayoti vaqtinchalik sinov bo'lib, vaqtni g'animat bilish, ezgu amallarni ko'paytirish, doimiy zikr va tavbada bo'lish najot kalitidir.",
         isFeatured: true
+      },
+      {
+        id: 'lecture-2',
+        title: "«Astaghfirulloh» zikrining fazilati va qalblar taskini",
+        speaker: "Qiroat & Zikr",
+        category: "Zikr & Duo",
+        date: "Kecha",
+        duration: "01:30",
+        url: "/videos/lecture-2.mp4",
+        views: 980,
+        description: "Doimiy istig'for aytish — qalbni gunohlardan poklash, rizqni kengaytirish va g'am-tashvishlardan xalos bo'lishning buyuk kalitidir. Payg'ambarimiz (s.a.v.) kuniga 70 dan ortiq istig'for aytganlari sunnatdir.",
+        isFeatured: false
+      },
+      {
+        id: 'lecture-3',
+        title: "Payg'ambarimiz (s.a.v.) xonadonlari va go'zal odob-axloq",
+        speaker: "Shayx Nuriddin Hoji domla",
+        category: "Ibratli Hikmat",
+        date: "2 kun oldin",
+        duration: "01:46",
+        url: "/videos/lecture-3.mp4",
+        views: 1540,
+        description: "Payg'ambarimiz Muhammad alayhissalom xonadonlari, ahli baytlari va u zotning avlodlarining yuksak odob-axloqi, kamtarligi va bir-birlariga bo'lgan samimiy ehtiromi haqidagi ibratli ma'ruza.",
+        isFeatured: false
+      },
+      {
+        id: 'lecture-4',
+        title: "Alloh taoloning yagonaligi va ulug'vorligi (Tavhid)",
+        speaker: "Shayx Nuriddin Hoji domla",
+        category: "Ma'ruza",
+        date: "3 kun oldin",
+        duration: "01:49",
+        url: "/videos/lecture-4.mp4",
+        views: 2100,
+        description: "Alloh taoloning go'zal ismlari va oliy sifatlari, U Zotning yagonaligi, hech bir sherigi va yordamchisi yo'qligi haqidagi sof Ahli Sunna val-Jamoa aqidasiga asoslangan purma'no dars.",
+        isFeatured: false
       }
     ];
   }
