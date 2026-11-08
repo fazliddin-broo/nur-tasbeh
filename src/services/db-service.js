@@ -246,6 +246,102 @@ class DBService {
         views: 4417,
         description: "Shayx Muhammad Sodiq Muhammad Yusuf hazratlarining ibratli hayot yo'li, ilmga bo'lgan cheksiz muhabbatlari va xalqimizga qoldirgan boy ma'naviy xazinasi.",
         isFeatured: false
+      },
+      {
+        id: 'lecture-8',
+        title: "Yaxshilik va ezgulik yo'li: Mo'minning burchi",
+        speaker: "Shayx Muhammad Sodiq Muhammad Yusuf",
+        category: "Hikmat",
+        date: "Yangi",
+        duration: "01:22",
+        url: "/videos/lecture-8.mp4",
+        views: 36508,
+        description: "Shayx Muhammad Sodiq Muhammad Yusuf hazratlarining ezgu amallar, insonlarga yaxshilik ulashish va har bir daqiqani Alloh roziligi uchun sarflash haqidagi chuqur ma'noli da'vatlari.",
+        isFeatured: false
+      },
+      {
+        id: 'lecture-9',
+        title: "Taqvo haqiqati: Nafsni poklash va saqlanish",
+        speaker: "Shayx Muhammad Sodiq Muhammad Yusuf",
+        category: "Ruhiy tarbiya",
+        date: "Yangi",
+        duration: "01:43",
+        url: "/videos/lecture-9.mp4",
+        views: 2080,
+        description: "«Ruhiy tarbiya» darslari silsilasidan: Haqiqiy taqvo insonning nafs balolaridan saqlanishi, haromdan tiyilishi va qalbini faqat Parvardigor muhabbatiga to'ldirishidir.",
+        isFeatured: false
+      },
+      {
+        id: 'lecture-10',
+        title: "Ixlos va niyat: Amallarning qabul bo'lish sharti",
+        speaker: "Shayx Muhammad Sodiq Muhammad Yusuf",
+        category: "Ibratli Hikmat",
+        date: "Yangi",
+        duration: "02:45",
+        url: "/videos/lecture-10.mp4",
+        views: 6948,
+        description: "Har bir ezgu amal niyatga bog'liqdir. Shayx hazratlari ixlosning qadr-qimmati, riyodan saqlanish va faqat Alloh taolo uchun xolis amal qilish lozimligi haqida tushuntiradilar.",
+        isFeatured: false
+      },
+      {
+        id: 'lecture-11',
+        title: "Qalb xotirjamligi: Zikr va toat lazzati",
+        speaker: "Shayx Muhammad Sodiq Muhammad Yusuf",
+        category: "Ruhiy tarbiya",
+        date: "Yangi",
+        duration: "01:43",
+        url: "/videos/lecture-11.mp4",
+        views: 4175,
+        description: "«Ruhiy tarbiya» darslaridan: Qalblar faqat Allohning zikri bilan orom topadi. Toat va ibodat lazzatini his etgan qalb dunyo hoyu-havaslariga aldanmaydi.",
+        isFeatured: false
+      },
+      {
+        id: 'lecture-12',
+        title: "G'aflatdan uyg'onish: Umr ne'matining qadri",
+        speaker: "Shayx Muhammad Sodiq Muhammad Yusuf",
+        category: "Ruhiy tarbiya",
+        date: "Yangi",
+        duration: "02:32",
+        url: "/videos/lecture-12.mp4",
+        views: 3022,
+        description: "«Ruhiy tarbiya» darslaridan: Inson umri eng qimmatbaho sarmoyadir. Shayx hazratlari g'aflat uyqusidan uyg'onish, vaqtni qadrlash va solih amallar bilan umrni ziynatlashga chaqiradilar.",
+        isFeatured: false
+      },
+      {
+        id: 'lecture-13',
+        title: "Go'zal xulq: Islomning jamoli",
+        speaker: "Shayx Muhammad Sodiq Muhammad Yusuf",
+        category: "Odob & Axloq",
+        date: "Yangi",
+        duration: "01:14",
+        url: "/videos/lecture-13.mp4",
+        views: 3438,
+        description: "Shayx Muhammad Sodiq Muhammad Yusuf hazratlarining mo'minning go'zal xulqi, xushmuomalaligi va jamiyatdagi namunali odobi haqidagi ta'sirli eslatmasi.",
+        isFeatured: false
+      },
+      {
+        id: 'lecture-14',
+        title: "Tavba eshigi: Umid va mag'firat",
+        speaker: "Shayx Muhammad Sodiq Muhammad Yusuf",
+        category: "Eslatma",
+        date: "Yangi",
+        duration: "01:02",
+        url: "/videos/lecture-14.mp4",
+        views: 1871,
+        description: "Alloh taoloning rahmati keng, mag'firati cheksizdir. Har bir banda chin dildan tavba qilib, Unga yuzlansa, gunohlari kechirilishi haqidagi ibratli nasihat.",
+        isFeatured: false
+      },
+      {
+        id: 'lecture-15',
+        title: "Sabr va shukr: Mo'minning ikki qanoti",
+        speaker: "Shayx Muhammad Sodiq Muhammad Yusuf",
+        category: "Ibratli Hikmat",
+        date: "Yangi",
+        duration: "02:05",
+        url: "/videos/lecture-15.mp4",
+        views: 6064,
+        description: "Hayotdagi har qanday sinovda sabr qilish va berilgan cheksiz ne'matlarga shukr qilish — mo'min qalbining eng yuksak fazilatidir. Shayx hazratlarining purhikmat darslaridan.",
+        isFeatured: false
       }
     ];
   }
