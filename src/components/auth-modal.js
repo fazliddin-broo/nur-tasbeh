@@ -40,8 +40,8 @@ export class AuthModal {
         <!-- Unauthenticated Form View -->
         <div id="auth-form-view" class="auth-view-content">
           <div class="auth-header-center">
-            <div class="auth-badge-icon">
-              <svg class="w-6 h-6 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <div class="auth-badge-icon flex items-center justify-center mb-1">
+              <img src="/icons/icon-192.svg" alt="Nur Tasbeh Logo" class="w-14 h-14 rounded-2xl shadow-xl ring-1 ring-amber-400/40" />
             </div>
             <h3 id="auth-modal-title" class="auth-title-text">Nur Tasbeh Akounti</h3>
             <p class="auth-subtitle-text">

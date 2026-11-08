@@ -1,45 +1,107 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#18233c"/>
-      <stop offset="70%" stop-color="#0a0e1a"/>
-      <stop offset="100%" stop-color="#04060b"/>
-    </radialGradient>
-    <radialGradient id="beadGlow" cx="35%" cy="35%" r="65%">
+    <!-- Deep Obsidian Midnight Tile Gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d13"/>
+      <stop offset="50%" stop-color="#131924"/>
+      <stop offset="100%" stop-color="#05070a"/>
+    </linearGradient>
+
+    <!-- Royal Polished Gold Gradient -->
+    <linearGradient id="royalGold" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#fff8e7"/>
+      <stop offset="25%" stop-color="#fce97d"/>
+      <stop offset="55%" stop-color="#d4af37"/>
+      <stop offset="85%" stop-color="#aa771c"/>
+      <stop offset="100%" stop-color="#634307"/>
+    </linearGradient>
+
+    <!-- Warm Golden Sheen Accent -->
+    <linearGradient id="goldSheen" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#d4af37" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <!-- Pure Luminous White Pearl Gradient -->
+    <radialGradient id="whitePearl" cx="32%" cy="28%" r="72%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="25%" stop-color="#a5f3fc"/>
-      <stop offset="65%" stop-color="#0891b2"/>
-      <stop offset="100%" stop-color="#0e374e"/>
+      <stop offset="40%" stop-color="#f8fafc"/>
+      <stop offset="75%" stop-color="#e2e8f0"/>
+      <stop offset="95%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#b0bec5"/>
     </radialGradient>
-    <radialGradient id="centerBead" cx="35%" cy="30%" r="70%">
-      <stop offset="0%" stop-color="#fef08a"/>
-      <stop offset="30%" stop-color="#f59e0b"/>
-      <stop offset="75%" stop-color="#b45309"/>
-      <stop offset="100%" stop-color="#451a03"/>
+
+    <!-- Master Center Pearl with Warm Golden Refraction -->
+    <radialGradient id="masterPearl" cx="30%" cy="28%" r="72%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="35%" stop-color="#fffdf8"/>
+      <stop offset="70%" stop-color="#fef3c7"/>
+      <stop offset="92%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#92400e"/>
     </radialGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+
+    <!-- Subtle Golden Bloom Filter -->
+    <filter id="goldBloom" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
+    <!-- Soft Drop Shadow for Icon Depth -->
+    <filter id="pearlShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
   </defs>
-  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
-  <circle cx="256" cy="256" r="180" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
-  <path d="M 120 220 Q 256 340 392 220" fill="none" stroke="rgba(56, 189, 248, 0.25)" stroke-width="3" stroke-dasharray="4 6"/>
-  <!-- Beads along curve -->
-  <circle cx="130" cy="225" r="14" fill="url(#beadGlow)"/>
-  <circle cx="165" cy="245" r="15" fill="url(#beadGlow)"/>
-  <circle cx="205" cy="265" r="16" fill="url(#beadGlow)"/>
-  <circle cx="256" cy="275" r="22" fill="url(#centerBead)" filter="url(#glow)"/>
-  <circle cx="307" cy="265" r="16" fill="url(#beadGlow)"/>
-  <circle cx="347" cy="245" r="15" fill="url(#beadGlow)"/>
-  <circle cx="382" cy="225" r="14" fill="url(#beadGlow)"/>
-  <!-- Tassel -->
-  <path d="M 256 297 L 256 335" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="256" cy="338" r="5" fill="#f59e0b"/>
-  <!-- Crescent & Star accent -->
-  <path d="M 235 125 A 36 36 0 1 0 275 165 A 30 30 0 1 1 235 125 Z" fill="#38bdf8" filter="url(#glow)" opacity="0.85"/>
-  <circle cx="278" cy="130" r="4" fill="#ffffff" filter="url(#glow)"/>
+
+  <!-- App Icon Base Squircle -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGradient)"/>
+  
+  <!-- Outer Sacred Geometry Rings -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="url(#royalGold)" stroke-width="1.5" opacity="0.32"/>
+  <circle cx="256" cy="256" r="172" fill="none" stroke="rgba(255, 255, 255, 0.12)" stroke-dasharray="3 6" stroke-width="2"/>
+
+  <!-- Royal Polished Gold Crescent (Hilol) -->
+  <g filter="url(#goldBloom)">
+    <path d="M 228 132 A 132 132 0 1 0 354 328 A 150 150 0 1 1 228 132 Z" fill="url(#royalGold)"/>
+    <!-- Crescent Inner Shimmer Edge -->
+    <path d="M 235 145 A 120 120 0 0 0 338 316 A 142 142 0 0 1 235 145 Z" fill="url(#goldSheen)" opacity="0.35"/>
+  </g>
+
+  <!-- Pure White Pearls (Dur Donalari) along elegant arc -->
+  <g filter="url(#pearlShadow)">
+    <circle cx="208" cy="212" r="14" fill="url(#whitePearl)" stroke="rgba(212,175,55,0.4)" stroke-width="1"/>
+    <circle cx="236" cy="244" r="16" fill="url(#whitePearl)" stroke="rgba(212,175,55,0.4)" stroke-width="1"/>
+    <circle cx="270" cy="272" r="18.5" fill="url(#whitePearl)" stroke="rgba(212,175,55,0.4)" stroke-width="1.2"/>
+    
+    <!-- Central Master Pearl (Katta Oq Gavhar) with Golden Aura -->
+    <circle cx="312" cy="288" r="24.5" fill="url(#masterPearl)" stroke="url(#royalGold)" stroke-width="2"/>
+    <circle cx="304" cy="280" r="5" fill="#ffffff" opacity="0.9"/>
+    
+    <circle cx="354" cy="278" r="18.5" fill="url(#whitePearl)" stroke="rgba(212,175,55,0.4)" stroke-width="1.2"/>
+    <circle cx="386" cy="254" r="15" fill="url(#whitePearl)" stroke="rgba(212,175,55,0.4)" stroke-width="1"/>
+  </g>
+
+  <!-- Fine Gold Bead Wire Connections -->
+  <path d="M 208 212 Q 250 260 312 288 Q 350 280 386 254" fill="none" stroke="url(#royalGold)" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Golden Imam & Silk Tassel (Popuk) -->
+  <g filter="url(#goldBloom)">
+    <path d="M 312 312 L 312 355" stroke="url(#royalGold)" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="312" cy="360" r="5.5" fill="#fce97d" stroke="#aa771c" stroke-width="1"/>
+    <!-- Tassel strands -->
+    <path d="M 307 366 L 302 396" stroke="url(#royalGold)" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+    <path d="M 312 366 L 312 402" stroke="url(#royalGold)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 317 366 L 322 396" stroke="url(#royalGold)" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+  </g>
+
+  <!-- Golden 8-pointed star (Rub el Hizb) at crescent pinnacle -->
+  <g transform="translate(288, 158) scale(0.72)" filter="url(#goldBloom)">
+    <path d="M 0 -30 L 8 -8 L 30 0 L 8 8 L 0 30 L -8 8 L -30 0 L -8 -8 Z" fill="url(#royalGold)"/>
+    <path d="M -21 -21 L 0 -10 L 21 -21 L 10 0 L 21 21 L 0 10 L -21 21 L -10 0 Z" fill="url(#royalGold)" opacity="0.9"/>
+    <!-- Star Central Radiant Gem -->
+    <circle cx="0" cy="0" r="4.5" fill="#ffffff" filter="url(#goldBloom)"/>
+  </g>
 </svg>
