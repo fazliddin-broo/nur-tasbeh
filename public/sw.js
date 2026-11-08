@@ -1,9 +1,13 @@
 // Service Worker for Nur Tasbeh PWA (Offline-first with instant redeploy refresh)
-const CACHE_NAME = 'nur-tasbih-v12';
+const CACHE_NAME = 'nur-tasbih-v13';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
+  '/favicon.ico',
+  '/icons/apple-touch-icon.png',
+  '/icons/icon-192.png',
+  '/icons/icon-512.png',
   '/icons/icon-192.svg',
   '/icons/icon-512.svg'
 ];

@@ -41,7 +41,7 @@ export class AuthModal {
         <div id="auth-form-view" class="auth-view-content">
           <div class="auth-header-center">
             <div class="auth-badge-icon flex items-center justify-center mb-1">
-              <img src="/icons/icon-192.svg" alt="Nur Tasbeh Logo" class="w-14 h-14 rounded-2xl shadow-xl ring-1 ring-amber-400/40" />
+              <img src="/icons/icon-192.png" alt="Nur Tasbeh Logo" class="w-16 h-16 rounded-2xl shadow-2xl ring-1 ring-amber-400/40 object-cover" />
             </div>
             <h3 id="auth-modal-title" class="auth-title-text">Nur Tasbeh Akounti</h3>
             <p class="auth-subtitle-text">
