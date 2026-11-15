@@ -341,7 +341,7 @@ class DBService {
         url: "/videos/lecture-15.mp4",
         views: 6064,
         description: "Hayotdagi har qanday sinovda sabr qilish va berilgan cheksiz ne'matlarga shukr qilish — mo'min qalbining eng yuksak fazilatidir. Shayx hazratlarining purhikmat darslaridan.",
-        isFeatured: False
+        isFeatured: false
       },
       {
         id: 'lecture-16',
