@@ -1,5 +1,5 @@
 import { INITIAL_ZIKRS } from '../data/zikr-data.js';
-import { authService } from './auth-service.js';
+import { authService, scopedKey } from './auth-service.js';
 
 const STORAGE_KEYS = {
   ACTIVE_ZIKR: 'nur_active_zikr',
@@ -45,10 +45,15 @@ class DBService {
     localStorage.setItem(STORAGE_KEYS.ACTIVE_ZIKR, id);
   }
 
+  // Per-account storage key (guest and every account keep separate data)
+  key(base) {
+    return scopedKey(base, authService.getUserId());
+  }
+
   // Counts for each zikr
   getCounts() {
     try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEYS.COUNTS)) || {};
+      return JSON.parse(localStorage.getItem(this.key(STORAGE_KEYS.COUNTS))) || {};
     } catch {
       return {};
     }
@@ -62,9 +67,9 @@ class DBService {
   setCount(zikrId, count) {
     const counts = this.getCounts();
     counts[zikrId] = Math.max(0, count);
-    localStorage.setItem(STORAGE_KEYS.COUNTS, JSON.stringify(counts));
+    localStorage.setItem(this.key(STORAGE_KEYS.COUNTS), JSON.stringify(counts));
     this.recordTapForToday();
-    authService.saveUserData(counts, this.getDailyStats());
+    authService.notifyDataChanged();
   }
 
   incrementCount(zikrId) {
@@ -81,7 +86,7 @@ class DBService {
   // Daily statistics and streak tracking
   getDailyStats() {
     try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEYS.DAILY_STATS)) || {
+      return JSON.parse(localStorage.getItem(this.key(STORAGE_KEYS.DAILY_STATS))) || {
         totalAllTime: 0,
         days: {},
         streak: 1,
@@ -110,7 +115,7 @@ class DBService {
       stats.lastActiveDate = today;
     }
 
-    localStorage.setItem(STORAGE_KEYS.DAILY_STATS, JSON.stringify(stats));
+    localStorage.setItem(this.key(STORAGE_KEYS.DAILY_STATS), JSON.stringify(stats));
   }
 
   getTodayCount() {

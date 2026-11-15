@@ -1,5 +1,5 @@
 // Service Worker for Nur Tasbeh PWA (Offline-first with instant redeploy refresh)
-const CACHE_NAME = 'nur-tasbih-v15';
+const CACHE_NAME = 'nur-tasbih-v16';
 const STATIC_ASSETS = [
   '/',
   '/index.html',

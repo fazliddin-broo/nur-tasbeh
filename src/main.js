@@ -62,12 +62,20 @@ class NurTasbihApp {
     const videoRoot = document.getElementById('video-feed-root');
     this.videoFeed = new VideoFeed(videoRoot);
 
-    this.authModal = new AuthModal(() => {
-      // On login/signup success, reload user's counts
+    const refreshActiveZikr = () => {
       const currentActiveId = dbService.getActiveZikrId();
       const current = dbService.getAllZikrs().find(z => z.id === currentActiveId) || this.activeZikr;
       this.setActiveZikr(current);
-      notificationService.showToast("Zikrlaringiz hisobi muvaffaqiyatli yuklandi 🟢", 'info');
+    };
+
+    this.authModal = new AuthModal(() => {
+      refreshActiveZikr();
+    });
+
+    authService.subscribe((_user, { type } = {}) => {
+      if (type === 'session' || type === 'data') {
+        refreshActiveZikr();
+      }
     });
 
     // 6. Set initial active zikr
